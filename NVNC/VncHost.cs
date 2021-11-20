@@ -129,7 +129,7 @@ namespace NVNC
         /// <returns>Returns a enum representation of the encoding.</returns>
         public Encoding GetPreferredEncoding()
         {
-            Encoding prefEnc = Encoding.ZrleEncoding;
+            Encoding prefEnc = Encoding.HextileEncoding;
             try
             {
                 for (int i = 0; i < Encodings.Length; i++)
@@ -559,25 +559,25 @@ namespace NVNC
         {
             //if (incremental)
             //    return;
-            Trace.WriteLine("X: " + x + " Y: " + y + " W: " + fb.Width + " H: " + fb.Height);
+            Console.WriteLine("X: " + x + " Y: " + y + " W: " + fb.Width + " H: " + fb.Height);
             int w = fb.Width;
             int h = fb.Height;
             if ((x < 0) || (y < 0) || (width <= 0) || (height <= 0))
             {
-                Trace.WriteLine("Neg:" + x + ":" + y + ":" + width + ":" + height);
+                Console.WriteLine("Neg:" + x + ":" + y + ":" + width + ":" + height);
                 return;
             }
             if (x + width > w)
             {
-                Trace.WriteLine("Too wide");
+                Console.WriteLine("Too wide");
                 return;
             }
             if (y + height > h)
             {
-                Trace.WriteLine("Too high");
+                Console.WriteLine("Too high");
                 return;
             }
-            Trace.WriteLine("Bounds OK!");
+            Console.WriteLine("Bounds OK!");
 
 
             List<EncodedRectangle> lst = new List<EncodedRectangle>();
